@@ -1,5 +1,7 @@
-*
-!*.yaml
-!.gitignore
 secrets.yaml
 known_devices.yaml
+*.db*
+*.log
+deps
+tts
+/.*
