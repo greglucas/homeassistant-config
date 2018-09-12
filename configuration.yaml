@@ -18,6 +18,8 @@ homeassistant:
 # Enable the authorization component
 auth:
 
+konnected: !include konnected.yaml
+
 # Show links to resources in log and frontend
 #introduction:
 
