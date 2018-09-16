@@ -25,8 +25,8 @@ konnected: !include konnected.yaml
 
 # Enables the frontend
 frontend:
-  extra_html_url:
-    - /local/custom_ui/state-card-floorplan.html
+        #  extra_html_url:
+        #- /local/custom_ui/state-card-floorplan.html
 
 # Enables configuration UI
 config:
@@ -40,7 +40,7 @@ http:
 # the developers to assist with development of Home Assistant.
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
+#updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
@@ -56,6 +56,10 @@ history:
 # View all events in a logbook
 logbook:
 
+# Log files
+logger:
+  default: info
+
 # Enables a map showing the location of tracked devices
 map:
 
@@ -63,11 +67,22 @@ map:
 sun:
 
 # Weather prediction
-sensor:
-  - platform: yr
 weather:
   - platform: darksky
     api_key: !secret darksky_api_key
+
+device_tracker:
+  - platform: nmap_tracker
+    hosts:
+      - 192.168.0.25
+      - 192.168.0.26
+    new_device_defaults:
+      track_new_devices: False
+      hide_if_away: False
+    interval_seconds: 20
+    consider_home: 300
+    scan_options: " --privileged -sP --host-timeout 10s"
+
 
 # Text to speech
 tts:
