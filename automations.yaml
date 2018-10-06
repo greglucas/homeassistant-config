@@ -1,1 +1,9 @@
-[]
+  - alias: 'SSL expiration notification'
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.ssl_cert_expiration
+      below: 21
+    action:
+      service: notify.slack
+      data:
+        message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'

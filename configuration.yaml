@@ -33,7 +33,9 @@ config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-#   base_url: example.duckdns.org:8123
+  ssl_certificate: !secret ssl_cert
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -83,6 +85,10 @@ device_tracker:
     consider_home: 300
     scan_options: " --privileged -sP --host-timeout 10s"
 
+# Remote access
+duckdns:
+  domain: !secret dns_domain
+  access_token: !secret dns_token
 
 # Text to speech
 tts:
@@ -94,6 +100,14 @@ tts:
 # Security panel
 panel_custom: !include panel_custom.yaml
 #binary_sensor: !include binary_sensors.yaml
+
+# SSL cert sensor
+sensor:
+  - platform: command_line
+    name: SSL cert expiration
+    unit_of_measurement: days
+    scan_interval: 10800
+    command: !secret ssl_command
 
 group: !include groups.yaml
 automation: !include automations.yaml
