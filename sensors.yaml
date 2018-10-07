@@ -1,0 +1,6 @@
+# SSL cert sensor
+  - platform: command_line
+    name: SSL cert expiration
+    unit_of_measurement: days
+    scan_interval: 10800
+    command: !secret ssl_command
