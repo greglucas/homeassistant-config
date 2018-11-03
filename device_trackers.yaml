@@ -5,6 +5,6 @@
     new_device_defaults:
       track_new_devices: False
       hide_if_away: False
-    interval_seconds: 20
+    interval_seconds: 30
     consider_home: 300
     scan_options: " --privileged -sP --host-timeout 10s"

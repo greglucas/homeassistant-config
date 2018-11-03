@@ -1,3 +1,4 @@
+# Notification for SSL expirations and renewl. Should automatically renew, but just in case.
   - alias: 'SSL expiration notification'
     trigger:
       platform: numeric_state
@@ -7,3 +8,30 @@
       service: notify.slack
       data:
         message: 'Warning - SSL certificate expires in 21 days and has not been automatically renewed'
+
+# Send a slack message: If any security sensor changes state (doesn't matter which way on/off)
+#                       AND no one is currently home
+  - alias: 'Alarm Notification'
+    trigger:
+      platform: state
+      entity_id:
+        - binary_sensor.door__front
+        - binary_sensor.door__garage
+        - binary_sensor.door_patio
+        - binary_sensor.window__basement
+        - binary_sensor.window__bath
+        - binary_sensor.window__living_1
+        - binary_sensor.window__living_2
+        - binary_sensor.window__living_3
+        - binary_sensor.window__mudroom
+        - binary_sensor.window__nook_1
+        - binary_sensor.window__nook_2
+        - binary_sensor.window__study
+    condition:
+      condition: state
+      entity_id: 'group.all_devices'
+      state: 'not_home'
+    action:
+      service: notify.slack
+      data:
+        message: 'SECURITY ALERT - A sensor changed state while no one is home'
