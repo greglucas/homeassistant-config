@@ -2,6 +2,7 @@ secrets.yaml
 known_devices.yaml
 html5_push_registrations.conf
 www/google*.html
+ecobee.conf
 *.db*
 *.log
 deps

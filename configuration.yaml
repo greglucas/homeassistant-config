@@ -87,6 +87,10 @@ tts:
 # Cloud
 #cloud:
 
+# Ecobee thermostat
+ecobee:
+  api_key: !secret ecobee_api_key
+
 # Security panel
 panel_custom: !include panel_custom.yaml
 #binary_sensor: !include binary_sensors.yaml
