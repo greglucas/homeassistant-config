@@ -1,42 +1,43 @@
   access_token: !secret konnected_access_token
+  api_host: !secret konnected_api_host
   devices:
     - id: !secret konnected_id1
       binary_sensors:
         - pin: 1
           type: door
-          name: 'Door - Front'
+          name: 'Front Door'
         - pin: 2
           type: door
-          name: 'Door - Patio'
+          name: 'Patio Door'
         - pin: 5
           type: door
-          name: 'Door - Garage'
+          name: 'Garage Door'
         - pin: 6
           type: window
-          name: 'Window - Study'
+          name: 'Study Windows'
         - pin: 7
           type: window
-          name: 'Window - Bath'
+          name: 'Bath Window'
         - pin: 9
           type: window
-          name: 'Window - Basement'
+          name: 'Basement Windows'
     - id: !secret konnected_id2
       binary_sensors:
         - pin: 1
           type: window
-          name: 'Window - Living 1'
+          name: 'Living Room Window 1'
         - pin: 2
           type: window
-          name: 'Window - Living 2'
+          name: 'Living Room Window 2'
         - pin: 5
           type: window
-          name: 'Window - Living 3'
+          name: 'Living Room Window 3'
         - pin: 6
           type: window
-          name: 'Window - Nook 1'
+          name: 'Dining Window 1'
         - pin: 7
           type: window
-          name: 'Window - Nook 2'
+          name: 'Dining Window 2'
         - pin: 9
           type: window
-          name: 'Window - Mudroom'
+          name: 'Mudroom Window'

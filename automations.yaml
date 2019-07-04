@@ -15,18 +15,18 @@
     trigger:
       platform: state
       entity_id:
-        - binary_sensor.door__front
-        - binary_sensor.door__garage
-        - binary_sensor.door_patio
-        - binary_sensor.window__basement
-        - binary_sensor.window__bath
-        - binary_sensor.window__living_1
-        - binary_sensor.window__living_2
-        - binary_sensor.window__living_3
-        - binary_sensor.window__mudroom
-        - binary_sensor.window__nook_1
-        - binary_sensor.window__nook_2
-        - binary_sensor.window__study
+        - binary_sensor.front_door
+        - binary_sensor.garage_door
+        - binary_sensor.patio_door
+        - binary_sensor.basement_windows
+        - binary_sensor.bathroom_window
+        - binary_sensor.living_room_window_1
+        - binary_sensor.living_room_window_2
+        - binary_sensor.living_room_window_3
+        - binary_sensor.mudroom_window
+        - binary_sensor.dining_window_1
+        - binary_sensor.dining_window_2
+        - binary_sensor.study_windows
     condition:
       condition: state
       entity_id: 'group.all_devices'
